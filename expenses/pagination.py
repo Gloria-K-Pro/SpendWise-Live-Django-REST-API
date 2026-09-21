@@ -1,0 +1,9 @@
+from rest_framework.pagination import PageNumberPagination
+
+
+class ExpensePagination(PageNumberPagination):
+    """?page=2 and optional ?page_size=20 (capped so nobody can ask for a million rows)."""
+
+    page_size = 5
+    page_size_query_param = "page_size"
+    max_page_size = 100
